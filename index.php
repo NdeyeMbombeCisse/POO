@@ -1,70 +1,117 @@
 <?php
-class Voiture {
+
+// creation de la class mere vehicule
+class Vehicule {
+
+    protected $nom;
+    protected $matricule;
+    protected $nombre_place;
+
+
+    public function __construct($nom,$matricule,$nombre_place){
+        $this->setnom($nom);
+        $this->setmatricule($matricule);
+        $this->setnombre_place($nombre_place);
+        
+    
+    }
+
+    public function getnom(){
+        return $this-> nom;
+     }
+    
+     public function setnom($new_nom){
+         $this->nom=$new_nom;
+     }
+     public function getmatricule(){
+         return $this-> matricule;
+     }
+    
+    public function setmatricule($new_matricule){
+         $this->matricule=$new_matricule;
+     }
+    
+     public function getnombre_place(){
+          return $this-> nombre_place;
+     }
+    
+    public function setnombre_place($new_nombre_place){
+        $this->nombre_place=$new_nombre_place;
+     }
+    
+     public function affichage(){
+   
+        echo "ce vehicule  est une "  .$this-> getnom().  " de matricule"  .$this->getmatricule(). "et a "  .$this->getnombre_place(). " place"  ." <br>";
+     }
+    
+
+
+public function demarrer(){
+    echo "la voiture demarre <br>";
+}
+ }
+class Voiture extends Vehicule{
 protected $model;
 protected $marque;
 protected $kilometrage;
 protected $annee;
 // creation de la methode construct
  
- public function __construct($model,$marque,$kilometrage,$annee){
-    $this->setmodel($model);
-    $this->setmarque($marque);
-    $this->setkilometrage($kilometrage);
-     $this->setannee($annee);
+ public function __construct($nom,$matricule, $nombre_place,$model,$marque,$kilometrage,$annee){
+
+    parent::__construct($nom,$matricule, $nombre_place);
+
+
+
+     $this->model=($model);
+     $this->marque=$marque;
+     $this->kilometrage=$kilometrage;
+     $this->annee=$annee;
 
 }
-// utilisation de getteur et des setteurs
+public function getmarque(){
+    return $this-> marque;
+}
 
- public function getmodel(){
-    return $this-> model;
- }
-
- public function setmodel($new_model){
-     $this->model=$new_model;
- }
- public function getmarque(){
-     return $this-> marque;
- }
-
-public function setmarque($new_marque){
-     $this->marque=$new_marque;
- }
-
- public function getkilometrage(){
-      return $this-> kilometrage;
- }
-
-public function setkilometrage($new_kilometrage){
-    $this->kilometrage=$new_kilometrage;
- }
-
- public function getannee(){
-      return $this-> annee;
- }
-
-public function setannee($new_annee){
-    $this->annee=$new_annee;
- }
-
+ 
  public function affichage(){
    
-   echo "la voiture de marque"  .$this-> getmarque().  "et de model"  .$this->getmodel(). "a une capacite de courir"  .$this->getkilometrage(). " km et a ete achete en"  .$this->getannee()." <br>";
-}
+     echo "ce vehicule  est une "  .$this-> nom.  " de matricule" .$this->getmatricule(). "et a "  .$this->getnombre_place(). " place elle est de marque" .$this->getmarque(). "de model" .$this->model. "peut courir" .$this->kilometrage. "km et a ete achete en " .$this->annee ." <br>";
+    // echo "Ce véhicule est une " . $this->getnom() . " de matricule " . $this->getmatricule() . " et a " . $this->getnombre_place() . " places. Elle est de marque " . $this->getmarque() . ", de modèle " . $this->getmodel() . ". Elle peut courir " . $this->getkilometrage() . " km et a été achetée en " . $this->getannee() . ". <br>";
+
+    
  
 }
+public function klaxonner(){
+
+    echo " le vehicule klaxonne \n" ;
+}
+
+}
+
+
 // creation des objets
 
- $voiture1 =new Voiture (" FORD " , " FUSION ", 1200 ,2023);
-
- $voiture2= new Voiture ( " MERCEDES", " X6" , 2000, 2022);
-
- $voiture3= new Voiture ( " TOYATA", " X8" , 4000, 2003);
-
+ $voiture1 =new Voiture ("voiture", 2222 , 23, "FORD " , " FUSION ", 1200 ,2023);
  $voiture1->affichage(); 
- $voiture2->affichage() ;
- $voiture3->affichage();
+ $voiture1->demarrer();
+ $voiture1->klaxonner();
+
+//  $voiture2= new Voiture ( " MERCEDES", " X6" , 2000, 2022);
+
+//  $voiture3= new Voiture ( " TOYATA", " X8" , 4000, 2003);
+
+//  $voiture1->affichage(); 
+//  $voiture2->affichage() ;
+//  $voiture3->affichage();
+//  
+
+// quatrieme question 
 
 
+
+ 
+ 
 
  
 ?>
