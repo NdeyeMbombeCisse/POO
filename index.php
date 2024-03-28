@@ -74,7 +74,7 @@ protected $annee;
 
 }
 public function getmarque(){
-    return $this-> marque;
+   return $this->marque;
 }
 
  
@@ -97,6 +97,30 @@ public function reparer(){
 }
 
 }
+class moto extends vehicule{
+    protected $prix;
+
+    public function __construct($nom,$matricule, $nombre_place,$prix){
+        parent::__construct($nom,$matricule, $nombre_place);
+        
+        $this->prix=($prix);
+
+    }
+    public function getprix(){
+       return $this->prix;
+
+
+    }
+
+    
+    
+    public function presentation(){
+        echo "ce vehicule  est une "  .$this-> getnom().  " de matricule"  .$this->getmatricule(). "et a "  .$this->getnombre_place(). " place ,elle a ete achete a " .$this->getprix() ." <br>";
+     
+        
+
+    }
+}
 
 
 // creation des objets
@@ -106,6 +130,10 @@ public function reparer(){
  $voiture1->demarrer();
  $voiture1->klaxonner();
  $voiture1->reparer();
+
+ $voiture2= new moto (" moto " , 2345 , 3 , 20000);
+ $voiture2->presentation();
+
 
 //  $voiture2= new Voiture ( " MERCEDES", " X6" , 2000, 2022);
 
