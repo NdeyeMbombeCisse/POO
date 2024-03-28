@@ -1,4 +1,8 @@
 <?php
+interface IReparable {
+    public function reparer();
+
+}
 
 // creation de la class mere vehicule
 class Vehicule {
@@ -50,7 +54,7 @@ public function demarrer(){
     echo "la voiture demarre <br>";
 }
  }
-class Voiture extends Vehicule{
+class Voiture extends Vehicule implements IReparable{
 protected $model;
 protected $marque;
 protected $kilometrage;
@@ -84,7 +88,12 @@ public function getmarque(){
 }
 public function klaxonner(){
 
-    echo " le vehicule klaxonne \n" ;
+    echo " le vehicule klaxonne <br>" ;
+}
+
+public function reparer(){
+    echo"je suis un reparateur de vehicule <br>";
+
 }
 
 }
@@ -96,6 +105,7 @@ public function klaxonner(){
  $voiture1->affichage(); 
  $voiture1->demarrer();
  $voiture1->klaxonner();
+ $voiture1->reparer();
 
 //  $voiture2= new Voiture ( " MERCEDES", " X6" , 2000, 2022);
 
